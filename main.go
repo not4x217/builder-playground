@@ -463,6 +463,7 @@ func setupServices(svcManager *serviceManager, out *output) error {
 			// http config
 			"--http",
 			"--http.api", "admin,eth,net,web3",
+			"--http.addr", "0.0.0.0",
 			"--http.port", "8545",
 			"--authrpc.port", "8551",
 			"--authrpc.jwtsecret", "{{.Dir}}/jwtsecret",
