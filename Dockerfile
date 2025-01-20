@@ -11,7 +11,7 @@ RUN git clone https://github.com/not4x217/eigenlayer-cli.git
 RUN cd eigenlayer-cli && make build 
 
 FROM debian:latest
-RUN apt-get update && apt-get install -y git curl bash
+RUN apt-get update && apt-get install -y git curl bash jq
 
 RUN curl -L https://foundry.paradigm.xyz | bash
 RUN bash -c 'source /root/.profile && foundryup'
