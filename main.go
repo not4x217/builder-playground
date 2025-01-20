@@ -462,7 +462,7 @@ func setupServices(svcManager *serviceManager, out *output) error {
 			// "--disable-discovery",
 			// http config
 			"--http",
-			"--http.api", "admin,eth,net,web3",
+			"--http.api", "all",
 			"--http.addr", "0.0.0.0",
 			"--http.port", "8545",
 			"--authrpc.port", "8551",
