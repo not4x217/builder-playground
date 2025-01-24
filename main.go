@@ -105,7 +105,7 @@ var watchCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		// Test that blocks are being produced
 		log := mevRCommon.LogSetup(false, "info")
-		clt := beaconclient.NewProdBeaconInstance(log, "http://localhost:3500", "http://localhost:3500")
+		clt := beaconclient.NewProdBeaconInstance(log, "http://0.0.0.0:3500", "http://0.0.0.0:3500")
 
 		// Subscribe to head events right away even if the connection has not been established yet
 		// That is handled internally in the function already.
@@ -528,6 +528,7 @@ func setupServices(svcManager *serviceManager, out *output) error {
 			"--enr-quic-port", "9100",
 			"--port", "9000",
 			"--quic-port", "9100",
+			"--http-address", "0.0.0.0",
 			"--http-port", "3500",
 			"--disable-packet-filter",
 			"--target-peers", "0",
@@ -566,7 +567,7 @@ func setupServices(svcManager *serviceManager, out *output) error {
 			"--datadir", "{{.Dir}}/data_validator",
 			"--testnet-dir", "{{.Dir}}/testnet",
 			"--init-slashing-protection",
-			"--beacon-nodes", "http://localhost:3500",
+			"--beacon-nodes", "http://0.0.0.0:3500",
 			"--suggested-fee-recipient", "0x690B9A9E9aa1C9dB991C7721a92d351Db4FaC990",
 			"--builder-proposals",
 		).Run()
