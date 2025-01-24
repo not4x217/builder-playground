@@ -39,7 +39,7 @@ type Config struct {
 
 func DefaultConfig() *Config {
 	return &Config{
-		ApiListenAddr:        "127.0.0.1",
+		ApiListenAddr:        "0.0.0.0",
 		ApiListenPort:        5555,
 		ApiSecretKey:         defaultSecretKey,
 		BeaconClientAddr:     "http://localhost:3500",

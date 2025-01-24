@@ -533,7 +533,7 @@ func setupServices(svcManager *serviceManager, out *output) error {
 			"--target-peers", "0",
 			"--execution-endpoint", "http://localhost:5656",
 			"--execution-jwt", "{{.Dir}}/jwtsecret",
-			"--builder", "http://localhost:5555",
+			"--builder", "http://0.0.0.0:5555",
 			"--builder-fallback-epochs-since-finalization", "0",
 			"--builder-fallback-disable-checks",
 			"--always-prepare-payload",
@@ -1022,7 +1022,7 @@ func watchProposerPayloads() {
 }
 
 func getProposerPayloadDelivered() ([]*mevRCommon.BidTraceV2JSON, error) {
-	resp, err := http.Get("http://localhost:5555/relay/v1/data/bidtraces/proposer_payload_delivered")
+	resp, err := http.Get("http://0.0.0.0:5555/relay/v1/data/bidtraces/proposer_payload_delivered")
 	if err != nil {
 		return nil, err
 	}
