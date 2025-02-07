@@ -593,15 +593,17 @@ func setupServices(svcManager *serviceManager, out *output) error {
 	}
 
 	// start rbuilder
-	svcManager.
-		NewService("rbuilder").
-		WithArgs(
-			"rbuilder",
-			"run",
-			"/usr/local/etc/rbuilder-config.yaml",
-		).
-		WithPort("rpc", 8645).
-		Run()
+	/*
+		svcManager.
+			NewService("rbuilder").
+			WithArgs(
+				"rbuilder",
+				"run",
+				"/usr/local/etc/rbuilder-config.yaml",
+			).
+			WithPort("rpc", 8645).
+			Run()
+	*/
 
 	services := []*service{}
 	for _, ss := range svcManager.handles {
